@@ -1,23 +1,23 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	0.1.92
+Version:	0.2.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/0.1/%{name}-%{version}.tar.xz
-# Source0-md5:	206bc712a36d891daf205c170f5ef9eb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/0.2/%{name}-%{version}.tar.xz
+# Source0-md5:	6df1570b1d737e00d848bc4a144b5594
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	clutter-gtk-devel >= 1.0.1
-BuildRequires:	evince-devel >= 3.1.90
+BuildRequires:	evince-devel >= 3.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	gjs-devel
-BuildRequires:	glib2-devel >= 1:2.29.90
-BuildRequires:	gnome-desktop-devel >= 3.1.90
-BuildRequires:	gnome-online-accounts-devel >= 3.1.90
+BuildRequires:	glib2-devel >= 1:2.30.0
+BuildRequires:	gnome-desktop-devel >= 3.2.0
+BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.30.0
-BuildRequires:	gtk+3-devel >= 3.1.13
+BuildRequires:	gtk+3-devel >= 3.2.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgdata-devel >= 0.9.1
 BuildRequires:	liboauth-devel
@@ -29,8 +29,13 @@ BuildRequires:	tracker-devel >= 0.12.1
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	hicolor-icon-theme
+Requires:	clutter-gtk >= 1.0.1
+Requires:	evince >= 3.2.0
 Requires:	gobject-introspection >= 1.30.0
+Requires:	gtk+3 >= 3.2.0
+Requires:	hicolor-icon-theme
+Requires:	libgdata >= 0.9.1
+Requires:	tracker-libs >= 0.12.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
