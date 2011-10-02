@@ -1,7 +1,7 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/0.2/%{name}-%{version}.tar.xz
@@ -35,7 +35,7 @@ Requires:	gobject-introspection >= 1.30.0
 Requires:	gtk+3 >= 3.2.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.9.1
-Requires:	tracker-libs >= 0.12.1
+Requires:	tracker >= 0.12.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
