@@ -1,11 +1,11 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	0.4.0
+Version:	0.4.0.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/0.4/%{name}-%{version}.tar.xz
-# Source0-md5:	90c34c57e83b48d16bfbf842bcc41a69
+# Source0-md5:	c29569592c3ad64ea219e756b16dc21e
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
