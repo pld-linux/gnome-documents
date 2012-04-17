@@ -6,6 +6,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/0.4/%{name}-%{version}.tar.xz
 # Source0-md5:	214f5be4c4e459aef19c32cfbebba720
+Patch0:		%{name}-shell.patch
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -43,6 +44,7 @@ gnome-documents is a document manager application for GNOME.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
