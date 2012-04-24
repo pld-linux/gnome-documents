@@ -37,6 +37,7 @@ Requires:	gtk+3 >= 3.4.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.11.0
 Requires:	tracker >= 0.14.0
+Suggests:	unoconv >= 0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
