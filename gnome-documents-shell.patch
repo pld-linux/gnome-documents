@@ -1,8 +1,0 @@
---- gnome-documents-0.4.1/src/gnome-documents.in.pld	2012-04-17 21:34:34.159732237 +0200
-+++ gnome-documents-0.4.1/src/gnome-documents.in	2012-04-17 21:34:40.970041438 +0200
-@@ -1,4 +1,4 @@
--#!/bin/bash
-+#!/bin/sh
- 
- if test x"$GJS_PATH" = x ; then
-     export GJS_PATH=@pkgdatadir@/js
