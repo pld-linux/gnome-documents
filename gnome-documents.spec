@@ -1,11 +1,11 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.6.1
+Version:	3.6.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	46006058a93952e8e6f2ccab2b55a318
+# Source0-md5:	4e4a41c874b139bad0b1c3478909a5c7
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
