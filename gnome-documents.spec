@@ -1,7 +1,7 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
 Version:	3.8.3.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.8/%{name}-%{version}.tar.xz
@@ -60,12 +60,12 @@ gnome-documents is a document manager application for GNOME.
 %{__automake}
 %configure \
 	--disable-silent-rules
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
