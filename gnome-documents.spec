@@ -1,11 +1,11 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.10.2
+Version:	3.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	59b2934bd2fd9a2f164368eb9317c860
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	d247f61cd865701243193e6d1bab9e6f
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -18,7 +18,7 @@ BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-desktop-devel >= 3.2.0
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.32.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.11.5
 BuildRequires:	gtk-webkit3-devel >= 1.10.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgdata-devel >= 0.13.3
@@ -29,18 +29,19 @@ BuildRequires:	libzapojit-devel >= 0.0.2
 BuildRequires:	pkgconfig >= 1:0.22
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tracker-devel >= 0.16.0
+BuildRequires:	tracker-devel >= 1.0.0
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	clutter-gtk >= 1.4.0
 Requires:	evince >= 3.8.0
 Requires:	glib2 >= 1:2.38.0
 Requires:	gobject-introspection >= 1.32.0
-Requires:	gtk+3 >= 3.10.0
+Requires:	gtk+3 >= 3.11.5
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.13.3
-Requires:	tracker >= 0.16.0
+Requires:	tracker >= 1.0.0
 Suggests:	unoconv >= 0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
 
-%find_lang gnome-documents
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,18 +89,19 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-documents
+%attr(755,root,root) %{_libdir}/gnome-documents-service
 %dir %{_libdir}/gnome-documents
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
 %attr(755,root,root) %{_libdir}/gnome-documents/libgdprivate-1.0.so
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
-%{_datadir}/appdata/gnome-documents.appdata.xml
-%{_datadir}/dbus-1/services/org.gnome.Documents.SearchProvider.service
+%{_datadir}/appdata/org.gnome.Documents.appdata.xml
+%{_datadir}/dbus-1/services/org.gnome.Documents.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Documents.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.documents.gschema.xml
 %{_datadir}/gnome-documents
-%{_datadir}/gnome-shell/search-providers/gnome-documents-search-provider.ini
-%{_desktopdir}/gnome-documents.desktop
+%{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
+%{_desktopdir}/org.gnome.Documents.desktop
 %{_iconsdir}/hicolor/*/*/*.png
 %{_mandir}/man1/gnome-documents.1*
