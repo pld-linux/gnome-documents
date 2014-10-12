@@ -11,7 +11,7 @@ BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
-BuildRequires:	evince-devel >= 3.8.0
+BuildRequires:	evince-devel >= 3.14.0
 BuildRequires:	gettext-devel
 BuildRequires:	gjs-devel
 BuildRequires:	glib2-devel >= 1:2.38.0
@@ -89,7 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-documents
-%attr(755,root,root) %{_libdir}/gnome-documents-service
 %dir %{_libdir}/gnome-documents
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
 %attr(755,root,root) %{_libdir}/gnome-documents/libgdprivate-1.0.so
