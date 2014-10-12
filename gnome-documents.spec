@@ -35,7 +35,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	clutter-gtk >= 1.4.0
-Requires:	evince >= 3.8.0
+Requires:	evince >= 3.14.0
 Requires:	glib2 >= 1:2.38.0
 Requires:	gobject-introspection >= 1.32.0
 Requires:	gtk+3 >= 3.11.5
