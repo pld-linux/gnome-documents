@@ -12,7 +12,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
 BuildRequires:	evince-devel >= 3.14.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gjs-devel
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-desktop-devel >= 3.2.0
