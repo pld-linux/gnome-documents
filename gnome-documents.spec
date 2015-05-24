@@ -1,4 +1,5 @@
 Summary:	Document manager for GNOME
+Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
 Version:	3.14.2
 Release:	1
@@ -47,6 +48,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 gnome-documents is a document manager application for GNOME.
+
+%description -l pl.UTF-8
+gnome-documents to aplikacja dla GNOME służąca do zarządzania
+dokumentami.
 
 %prep
 %setup -q
