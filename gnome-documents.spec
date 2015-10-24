@@ -2,7 +2,7 @@ Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
 Version:	3.18.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.18/%{name}-%{version}.tar.xz
@@ -110,7 +110,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.Documents.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.books.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.documents.gschema.xml
-%{_datadir}/gnome-documents
+%dir %{_datadir}/gnome-documents
+%attr(755,root,root) %{_datadir}/gnome-documents/org.gnome.Books
+%attr(755,root,root) %{_datadir}/gnome-documents/org.gnome.Documents
+%{_datadir}/gnome-documents/org.gnome.Books.*.gresource
+%{_datadir}/gnome-documents/org.gnome.Documents.*.gresource
+%dir %{_datadir}/gnome-documents/gir-1.0
+%{_datadir}/gnome-documents/gir-1.0/Gd-1.0.gir
+%{_datadir}/gnome-documents/gir-1.0/GdPrivate-1.0.gir
 %{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
 %{_desktopdir}/org.gnome.Books.desktop
 %{_desktopdir}/org.gnome.Documents.desktop
