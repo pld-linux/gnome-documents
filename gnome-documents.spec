@@ -1,12 +1,12 @@
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
-Version:	3.18.2
+Version:	3.20.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	550a3897a1e6a729d8f6647d963a0a3f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.20/%{name}-%{version}.tar.xz
+# Source0-md5:	b16bc7d5d4a411d5d8200139742b9688
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -19,7 +19,7 @@ BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-desktop-devel >= 3.2.0
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.32.0
-BuildRequires:	gtk+3-devel >= 3.16.0
+BuildRequires:	gtk+3-devel >= 3.20.0
 BuildRequires:	gtk-webkit4-devel >= 2.6.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgdata-devel >= 0.13.3
@@ -40,7 +40,7 @@ Requires:	evince >= 3.14.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gnome-online-accounts >= 3.2.0
 Requires:	gobject-introspection >= 1.32.0
-Requires:	gtk+3 >= 3.16.0
+Requires:	gtk+3 >= 3.20.0
 Requires:	gtk-webkit4 >= 2.6.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.13.3
@@ -121,9 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
 %{_desktopdir}/org.gnome.Books.desktop
 %{_desktopdir}/org.gnome.Documents.desktop
-%{_iconsdir}/hicolor/*x*/apps/gnome-books.png
-%{_iconsdir}/hicolor/*x*/apps/gnome-documents.png
-%{_iconsdir}/hicolor/scalable/apps/gnome-books-symbolic.svg
-%{_iconsdir}/hicolor/scalable/apps/gnome-documents-symbolic.svg
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.Books.png
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.Documents.png
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Books-symbolic.svg
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Documents-symbolic.svg
 %{_mandir}/man1/gnome-books.1*
 %{_mandir}/man1/gnome-documents.1*
