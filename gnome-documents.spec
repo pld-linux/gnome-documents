@@ -1,12 +1,12 @@
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
-Version:	3.20.0
+Version:	3.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.20/%{name}-%{version}.tar.xz
-# Source0-md5:	b16bc7d5d4a411d5d8200139742b9688
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.24/%{name}-%{version}.tar.xz
+# Source0-md5:	bf0bed5dd4d802096b1fe24e90f6a094
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -23,6 +23,7 @@ BuildRequires:	gtk+3-devel >= 3.20.0
 BuildRequires:	gtk-webkit4-devel >= 2.6.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgdata-devel >= 0.13.3
+BuildRequires:	libgepub-devel >= 0.4
 BuildRequires:	libsoup-devel >= 2.42.0
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
@@ -44,6 +45,7 @@ Requires:	gtk+3 >= 3.20.0
 Requires:	gtk-webkit4 >= 2.6.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.13.3
+Requires:	libgepub >= 0.4
 Requires:	libsoup >= 2.42.0
 Requires:	libzapojit >= 0.0.2
 Requires:	tracker >= 1.0.0
