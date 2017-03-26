@@ -2,7 +2,7 @@ Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
 Version:	3.24.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.24/%{name}-%{version}.tar.xz
@@ -80,6 +80,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ln
 
 %find_lang %{name} --with-gnome
 
