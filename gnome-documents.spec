@@ -1,12 +1,12 @@
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
-Version:	3.24.1
+Version:	3.24.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	a94d3be7f4092298f91fb24809ec5bf6
+# Source0-md5:	d6702ff96c1a095afd133d90160d8d79
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -14,12 +14,12 @@ BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
 BuildRequires:	evince-devel >= 3.14.0
 BuildRequires:	gettext-tools
-BuildRequires:	gjs-devel
+BuildRequires:	gjs-devel >= 1.0
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-desktop-devel >= 3.2.0
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.32.0
-BuildRequires:	gtk+3-devel >= 3.20.0
+BuildRequires:	gtk+3-devel >= 3.22.10
 BuildRequires:	gtk-webkit4-devel >= 2.6.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgdata-devel >= 0.13.3
@@ -39,9 +39,10 @@ Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	clutter-gtk >= 1.4.0
 Requires:	evince >= 3.14.0
 Requires:	glib2 >= 1:2.40.0
+Requires:	gnome-desktop >= 3.2.0
 Requires:	gnome-online-accounts >= 3.2.0
 Requires:	gobject-introspection >= 1.32.0
-Requires:	gtk+3 >= 3.20.0
+Requires:	gtk+3 >= 3.22.10
 Requires:	gtk-webkit4 >= 2.6.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.13.3
@@ -80,8 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
-
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ln
 
 %find_lang %{name} --with-gnome
 
