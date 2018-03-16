@@ -1,33 +1,30 @@
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
-Version:	3.24.3
+Version:	3.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	dc0dc0dfd0a0b52080a7510770180b23
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.28/%{name}-%{version}.tar.xz
+# Source0-md5:	233c3b168bb00d4dcb49fd8dd82bb022
 URL:		https://wiki.gnome.org/Apps/Documents
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
 BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
 BuildRequires:	evince-devel >= 3.14.0
-BuildRequires:	gettext-tools
-BuildRequires:	gjs-devel >= 1.0
+BuildRequires:	gettext-tools >= 0.19.8
+BuildRequires:	gjs-devel >= 1.48.0
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-desktop-devel >= 3.2.0
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.32.0
-BuildRequires:	gtk+3-devel >= 3.22.10
+BuildRequires:	gtk+3-devel >= 3.22.15
 BuildRequires:	gtk-webkit4-devel >= 2.6.0
-BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgdata-devel >= 0.13.3
-BuildRequires:	libgepub-devel >= 0.4
+BuildRequires:	libgepub-devel >= 0.6
 BuildRequires:	libsoup-devel >= 2.42.0
-BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	libzapojit-devel >= 0.0.2
+BuildRequires:	meson >= 0.42.0
 BuildRequires:	pkgconfig >= 1:0.22
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
@@ -38,15 +35,16 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	clutter-gtk >= 1.4.0
 Requires:	evince >= 3.14.0
+Requires:	gjs >= 1.48.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gnome-desktop >= 3.2.0
 Requires:	gnome-online-accounts >= 3.2.0
 Requires:	gobject-introspection >= 1.32.0
-Requires:	gtk+3 >= 3.22.10
+Requires:	gtk+3 >= 3.22.15
 Requires:	gtk-webkit4 >= 2.6.0
 Requires:	hicolor-icon-theme
 Requires:	libgdata >= 0.13.3
-Requires:	libgepub >= 0.4
+Requires:	libgepub >= 0.6
 Requires:	libsoup >= 2.42.0
 Requires:	libzapojit >= 0.0.2
 Requires:	tracker >= 1.0.0
@@ -64,23 +62,13 @@ dokumentami.
 %setup -q
 
 %build
-%{__intltoolize}
-%{__libtoolize}
-%{__aclocal} -I m4 -I libgd
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-silent-rules
-%{__make} -j1
+%meson build
+%meson_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -j1 install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
+%meson_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -106,8 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
-%{_datadir}/appdata/org.gnome.Books.appdata.xml
-%{_datadir}/appdata/org.gnome.Documents.appdata.xml
+%{_datadir}/metainfo/org.gnome.Books.appdata.xml
+%{_datadir}/metainfo/org.gnome.Documents.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.Books.service
 %{_datadir}/dbus-1/services/org.gnome.Documents.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Documents.enums.xml
