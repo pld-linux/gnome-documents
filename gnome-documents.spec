@@ -1,12 +1,12 @@
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
-Version:	3.28.0
+Version:	3.34.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.28/%{name}-%{version}.tar.xz
-# Source0-md5:	233c3b168bb00d4dcb49fd8dd82bb022
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	7158db2c13ae45fe166df8c66f9d083c
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
@@ -85,8 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gnome-documents.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-books
+%doc AUTHORS NEWS README.md TODO
 %attr(755,root,root) %{_bindir}/gnome-documents
 %dir %{_libdir}/gnome-documents
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
@@ -94,27 +93,18 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
-%{_datadir}/metainfo/org.gnome.Books.appdata.xml
 %{_datadir}/metainfo/org.gnome.Documents.appdata.xml
-%{_datadir}/dbus-1/services/org.gnome.Books.service
 %{_datadir}/dbus-1/services/org.gnome.Documents.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Documents.enums.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.books.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.documents.gschema.xml
 %dir %{_datadir}/gnome-documents
-%attr(755,root,root) %{_datadir}/gnome-documents/org.gnome.Books
 %attr(755,root,root) %{_datadir}/gnome-documents/org.gnome.Documents
-%{_datadir}/gnome-documents/org.gnome.Books.*.gresource
 %{_datadir}/gnome-documents/org.gnome.Documents.*.gresource
 %dir %{_datadir}/gnome-documents/gir-1.0
 %{_datadir}/gnome-documents/gir-1.0/Gd-1.0.gir
 %{_datadir}/gnome-documents/gir-1.0/GdPrivate-1.0.gir
 %{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
-%{_desktopdir}/org.gnome.Books.desktop
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Documents.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Documents-symbolic.svg
 %{_desktopdir}/org.gnome.Documents.desktop
-%{_iconsdir}/hicolor/*x*/apps/org.gnome.Books.png
-%{_iconsdir}/hicolor/*x*/apps/org.gnome.Documents.png
-%{_iconsdir}/hicolor/scalable/apps/org.gnome.Books-symbolic.svg
-%{_iconsdir}/hicolor/scalable/apps/org.gnome.Documents-symbolic.svg
-%{_mandir}/man1/gnome-books.1*
 %{_mandir}/man1/gnome-documents.1*
