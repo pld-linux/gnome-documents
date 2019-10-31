@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	pdf	# "getting-started" PDFs
+
 Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
@@ -24,13 +28,19 @@ BuildRequires:	libgepub-devel >= 0.6
 BuildRequires:	libsoup-devel >= 2.42.0
 BuildRequires:	libxslt-progs
 BuildRequires:	libzapojit-devel >= 0.0.2
-BuildRequires:	meson >= 0.42.0
+BuildRequires:	meson >= 0.50.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig >= 1:0.22
-BuildRequires:	rpmbuild(macros) >= 1.592
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tracker-devel >= 1.0.0
+BuildRequires:	tracker-devel >= 2.0.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
+%if %{with pdf}
+BuildRequires:	inkscape
+# pdfunite
+BuildRequires:	poppler-progs
+%endif
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	clutter-gtk >= 1.4.0
@@ -47,7 +57,7 @@ Requires:	libgdata >= 0.13.3
 Requires:	libgepub >= 0.6
 Requires:	libsoup >= 2.42.0
 Requires:	libzapojit >= 0.0.2
-Requires:	tracker >= 1.0.0
+Requires:	tracker >= 2.0.0
 Suggests:	unoconv >= 0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,13 +72,15 @@ dokumentami.
 %setup -q
 
 %build
-%meson build
-%meson_build -C build
+%meson build \
+	%{?with_pdf:-Dgetting_started=true}
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -C build
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -93,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
-%{_datadir}/metainfo/org.gnome.Documents.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.Documents.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Documents.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.documents.gschema.xml
@@ -103,8 +114,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gnome-documents/gir-1.0
 %{_datadir}/gnome-documents/gir-1.0/Gd-1.0.gir
 %{_datadir}/gnome-documents/gir-1.0/GdPrivate-1.0.gir
+%if %{with pdf}
+%dir %{_datadir}/gnome-documents/getting-started
+%{_datadir}/gnome-documents/getting-started/C
+%endif
 %{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
+%{_datadir}/metainfo/org.gnome.Documents.appdata.xml
+%{_desktopdir}/org.gnome.Documents.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Documents.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Documents-symbolic.svg
-%{_desktopdir}/org.gnome.Documents.desktop
 %{_mandir}/man1/gnome-documents.1*
