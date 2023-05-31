@@ -6,11 +6,14 @@ Summary:	Document manager for GNOME
 Summary(pl.UTF-8):	Zarządca dokumentów dla GNOME
 Name:		gnome-documents
 Version:	3.34.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.34/%{name}-%{version}.tar.xz
 # Source0-md5:	7158db2c13ae45fe166df8c66f9d083c
+Patch0:		%{name}-gnome-desktop.patch
+Patch1:		%{name}-meson.patch
+Patch2:		%{name}-inkscape.patch
 URL:		https://wiki.gnome.org/Apps/Documents
 BuildRequires:	clutter-devel >= 1.10.0
 BuildRequires:	clutter-gtk-devel >= 1.4.0
@@ -18,7 +21,7 @@ BuildRequires:	evince-devel >= 3.14.0
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gjs-devel >= 1.48.0
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gnome-desktop-devel >= 3.2.0
+BuildRequires:	gnome-desktop-devel >= 43
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 1.32.0
 BuildRequires:	gtk+3-devel >= 3.22.15
@@ -37,7 +40,7 @@ BuildRequires:	tracker-devel >= 2.0.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 %if %{with pdf}
-BuildRequires:	inkscape
+BuildRequires:	inkscape >= 1.0
 # pdfunite
 BuildRequires:	poppler-progs
 %endif
@@ -47,7 +50,7 @@ Requires:	clutter-gtk >= 1.4.0
 Requires:	evince >= 3.14.0
 Requires:	gjs >= 1.48.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gnome-desktop >= 3.2.0
+Requires:	gnome-desktop >= 43
 Requires:	gnome-online-accounts >= 3.2.0
 Requires:	gobject-introspection >= 1.32.0
 Requires:	gtk+3 >= 3.22.15
@@ -70,6 +73,13 @@ dokumentami.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+
+# workaround "data/meson.build:6:0: ERROR: Sandbox violation: Tried to grab file gd-main-view.h from a nested subproject."
+cp -p subprojects/libgd/libgd/gd-main-view{,-generic}.h data
+%{__sed} -i -e "s!join_paths(libgd_src_path, \('[^']*'\))!\1!" data/meson.build
 
 %build
 %meson build \

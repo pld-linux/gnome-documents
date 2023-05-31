@@ -1,0 +1,18 @@
+--- gnome-documents-3.34.0/data/meson.build.orig	2023-05-31 18:02:10.894609214 +0200
++++ gnome-documents-3.34.0/data/meson.build	2023-05-31 18:03:36.334765664 +0200
+@@ -56,7 +56,6 @@ foreach app: documents_apps
+   appdata = app + '.appdata.xml'
+ 
+   appdata_file = i18n.merge_file(
+-    appdata,
+     input: appdata + '.in',
+     output: appdata,
+     po_dir: po_dir,
+@@ -76,7 +75,6 @@ foreach app: documents_apps
+   desktop = app + '.desktop'
+ 
+   desktop_file = i18n.merge_file(
+-    desktop,
+     type: 'desktop',
+     input: desktop + '.in',
+     output: desktop,

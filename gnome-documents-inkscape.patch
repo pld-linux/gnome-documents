@@ -1,0 +1,12 @@
+Adjust options for inkscape 1.x
+--- gnome-documents-3.34.0/getting-started/meson.build.orig	2019-10-24 09:35:24.000000000 +0200
++++ gnome-documents-3.34.0/getting-started/meson.build	2023-05-31 17:40:27.894465742 +0200
+@@ -21,7 +21,7 @@ foreach lingua: linguas
+       source,
+       input: join_paths(lingua, source + '.svg'),
+       output: source + '.pdf',
+-      command: [inkscape, '-z', '-A', '@OUTPUT@', '@INPUT@']
++      command: [inkscape, '--export-type=pdf', '--export-filename', '@OUTPUT@', '@INPUT@']
+     )
+   endforeach
+ 

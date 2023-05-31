@@ -1,0 +1,20 @@
+--- gnome-books-40.0/src/lib/gd-utils.c.orig	2021-03-25 10:45:11.490234600 +0100
++++ gnome-books-40.0/src/lib/gd-utils.c	2023-05-31 06:21:16.381236833 +0200
+@@ -66,7 +66,7 @@ create_thumbnail (GTask *task,
+   factory = gnome_desktop_thumbnail_factory_new (GNOME_DESKTOP_THUMBNAIL_SIZE_LARGE);
+   pixbuf = gnome_desktop_thumbnail_factory_generate_thumbnail
+     (factory, 
+-     uri, g_file_info_get_content_type (info));
++     uri, g_file_info_get_content_type (info), NULL, NULL);
+ 
+   if (pixbuf == NULL)
+     {
+@@ -74,7 +74,7 @@ create_thumbnail (GTask *task,
+       goto out;
+     }
+ 
+-  gnome_desktop_thumbnail_factory_save_thumbnail (factory, pixbuf, uri, (time_t) mtime);
++  gnome_desktop_thumbnail_factory_save_thumbnail (factory, pixbuf, uri, (time_t) mtime, NULL, NULL);
+   g_task_return_boolean (task, TRUE);
+ 
+  out:
