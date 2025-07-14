@@ -73,9 +73,9 @@ dokumentami.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 # workaround "data/meson.build:6:0: ERROR: Sandbox violation: Tried to grab file gd-main-view.h from a nested subproject."
 cp -p subprojects/libgd/libgd/gd-main-view{,-generic}.h data
