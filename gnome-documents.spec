@@ -82,15 +82,15 @@ cp -p subprojects/libgd/libgd/gd-main-view{,-generic}.h data
 %{__sed} -i -e "s!join_paths(libgd_src_path, \('[^']*'\))!\1!" data/meson.build
 
 %build
-%meson build \
+%meson \
 	%{?with_pdf:-Dgetting_started=true}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
