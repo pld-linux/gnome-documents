@@ -34,7 +34,7 @@ BuildRequires:	libzapojit-devel >= 0.0.2
 BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig >= 1:0.22
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	tracker-devel >= 2.0.0
 BuildRequires:	xz
